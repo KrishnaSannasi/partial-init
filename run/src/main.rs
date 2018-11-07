@@ -1,6 +1,3 @@
-// #![feature(optin_builtin_traits)]
-// #![no_std]
-
 #[macro_use]
 extern crate partial_init_derive;
 extern crate partial_init_core;
@@ -15,6 +12,7 @@ fn main() {
 }
 
 /*
+// This is the full code that the PartialInit derive macro generates
 #[doc = r" This module was created by the parital-init-derive crate, see that documentation"]
 #[doc = r" for detail on how this operation works (it's long and detailed)"]
 #[doc = r" "]

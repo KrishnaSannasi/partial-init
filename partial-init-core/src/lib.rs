@@ -1,6 +1,5 @@
 #![forbid(unsafe_code, missing_docs)]
 #![cfg_attr(not(feature = "std"), no_std)]
-// #![feature(optin_builtin_traits)]
 
 //! Partial Init
 //! ---
