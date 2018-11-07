@@ -1,0 +1,13 @@
+[package]
+name = "partial-init-derive"
+version = "0.1.0"
+authors = ["Ozaren <krishna.sd.2012@gmail.com>"]
+# edition = "2018"
+
+[dependencies]
+syn = "0.15.12"
+quote = "0.6.8"
+proc-macro2 = '*'
+
+[lib]
+proc-macro = true

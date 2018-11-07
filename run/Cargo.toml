@@ -1,0 +1,9 @@
+[package]
+name = "run"
+version = "0.1.0"
+authors = ["Ozaren <krishna.sd.2012@gmail.com>"]
+# edition = "2018"
+
+[dependencies]
+partial-init-core = { path = '../partial-init-core/' }
+partial-init-derive = { path = '../partial-init-derive/' }
