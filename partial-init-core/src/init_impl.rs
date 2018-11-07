@@ -29,46 +29,31 @@ impl<U: FieldName, T> MaybeInit<U, T> for Uninit<U, T> {
     }
 }
 
-impl<U: FieldName, T> MaybeInit<U, (T,)> for T {
+impl<U: FieldName, T> MaybeInit<U, T> for Option<T> {
     #[inline(always)]
-    fn get(self) -> Option<(T,)> {
-        Some(Init::<U, (T,)>::get(self))
+    fn get(self) -> Option<T> {
+        self
     }
 }
-
-impl<U: FieldName, T> Init<U, (T,)> for T {
-    #[inline(always)]
-    fn get(self) -> (T,) {
-        (self,)
-    }
-}
-
-// impl<U: FieldName, T> MaybeInit<U, T> for Option<T> {
-//     #[inline(always)]
-//     fn get(self) -> Option<T> {
-//         self
-//     }
-// }
 
 impl_init! {
-    // impl(T) Init(T) for T {
-    //     get(self) { self }
-    // }
+    impl(T) Init(T) for T {
+        get(self) { self }
+    }
 
-    // impl(T) Init((T,)) for T {
-    //     get(self) { (self,) }
-    // }
+    impl(T) Init((T,)) for T {
+        get(self) { (self,) }
+    }
 
-    // impl(T) Init([T; 1]) for T {
-    //     get(self) { [self] }
-    // }
+    impl(T) Init([T; 1]) for T {
+        get(self) { [self] }
+    }
 
-    // impl(T) Init(Option<T>) for T {
-    //     get(self) { Some(self) }
-    // }
+    impl(T) Init(Option<T>) for T {
+        get(self) { Some(self) }
+    }
 }
 
-/*
 impl_init! {
     impl('a, T) Init(T) for &'a mut dyn (FnMut() -> T) {
         get(self) { self() }
@@ -110,7 +95,6 @@ fn_impl! {  }
 fn_impl! { Send }
 fn_impl! { Sync }
 fn_impl! { Send Sync }
-*/
 
 /*
     #[cfg(feature = "std")]
